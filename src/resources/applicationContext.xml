@@ -10,6 +10,9 @@
 <!--    <context:annotation-config/>-->
 <!--    <context:component-scan base-package="com.baeldung.applicationcontext"/>-->
 
+    <context:property-placeholder location="classpath:myApp.properties"/>
+
+
     <bean id = "myPet"
           class = "Dog">
     </bean>
@@ -18,8 +21,8 @@
           class="Person">
 <!--        <constructor-arg ref="myPet"/>-->
         <property name="pet" ref="myPet"/>
-        <property name="surname" value="Tregulov"/>
-        <property name="age" value="33"/>
+        <property name="surname" value="${person.surname}"/>
+        <property name="age" value="${person.age}"/>
     </bean>
 
 </beans>
