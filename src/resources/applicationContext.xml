@@ -16,7 +16,8 @@
 
     <bean id = "myPerson"
           class="Person">
-        <constructor-arg ref="myPet"/>
+<!--        <constructor-arg ref="myPet"/>-->
+        <property name="pet" ref="myPet"/>
     </bean>
 
 </beans>
