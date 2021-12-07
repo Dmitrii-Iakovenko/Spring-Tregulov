@@ -18,6 +18,8 @@
           class="Person">
 <!--        <constructor-arg ref="myPet"/>-->
         <property name="pet" ref="myPet"/>
+        <property name="surname" value="Tregulov"/>
+        <property name="age" value="33"/>
     </bean>
 
 </beans>
