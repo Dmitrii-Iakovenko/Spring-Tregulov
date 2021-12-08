@@ -1,3 +1,5 @@
+package spring;
+
 public class Person {
 
     private Pet pet;
@@ -5,17 +7,17 @@ public class Person {
     private int age;
 
     public Person() {
-        System.out.println("Person bean is created");
+        System.out.println("spring.Person bean is created");
     }
 
     public Person(Pet pet) {
-        System.out.println("Person bean is created");
+        System.out.println("spring.Person bean is created");
         this.pet = pet;
     }
 
     // pet -> setPet
     public void setPet(Pet pet) {
-        System.out.println("Class Person: set pet");
+        System.out.println("Class spring.Person: set pet");
         this.pet = pet;
     }
 
@@ -24,12 +26,12 @@ public class Person {
     }
 
     public void setSurname(String surname) {
-        System.out.println("Class Person: set surname");
+        System.out.println("Class spring.Person: set surname");
         this.surname = surname;
     }
 
     public int getAge() {
-        System.out.println("Class Person: set age");
+        System.out.println("Class spring.Person: set age");
         return age;
     }
 
@@ -38,7 +40,7 @@ public class Person {
     }
 
     public void callYourPet() {
-        System.out.println("Hello, my lovely Pet!");
+        System.out.println("Hello, my lovely spring.Pet!");
         pet.say();
     }
 }

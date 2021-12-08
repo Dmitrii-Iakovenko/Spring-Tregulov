@@ -1,3 +1,5 @@
+package spring;
+
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Test4 {
@@ -5,9 +7,9 @@ public class Test4 {
         ClassPathXmlApplicationContext context =
                 new ClassPathXmlApplicationContext("applicationContext2.xml");
 
-//        Dog myDog = context.getBean("myPet", Dog.class);
+//        spring.Dog myDog = context.getBean("myPet", spring.Dog.class);
 //        myDog.setName("Belka");
-//        Dog yourDog = context.getBean("myPet", Dog.class);
+//        spring.Dog yourDog = context.getBean("myPet", spring.Dog.class);
 //        yourDog.setName("Strelka");
 
 //        System.out.println(myDog.getName());

@@ -1,9 +1,11 @@
+package spring;
+
 public class Dog implements Pet {
 
 //    private String name;
 
     public Dog() {
-        System.out.println("Dog bean is created");
+        System.out.println("spring.Dog bean is created");
     }
 
     @Override
@@ -12,11 +14,11 @@ public class Dog implements Pet {
     }
 
     protected void init() {
-        System.out.println("Class Dog: init method");
+        System.out.println("Class spring.Dog: init method");
     }
 
     private void destroy() {
-        System.out.println("Class Dog: destroy method");
+        System.out.println("Class spring.Dog: destroy method");
     }
 
 //    public String getName() {
