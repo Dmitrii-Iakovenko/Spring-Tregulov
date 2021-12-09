@@ -1,5 +1,9 @@
 package spring;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component("personBean")
 public class Person {
 
     private Pet pet;
@@ -7,17 +11,18 @@ public class Person {
     private int age;
 
     public Person() {
-        System.out.println("spring.Person bean is created");
+        System.out.println("Person bean is created");
     }
 
+    @Autowired
     public Person(Pet pet) {
-        System.out.println("spring.Person bean is created");
+        System.out.println("Person bean is created");
         this.pet = pet;
     }
 
     // pet -> setPet
     public void setPet(Pet pet) {
-        System.out.println("Class spring.Person: set pet");
+        System.out.println("Class Person: set pet");
         this.pet = pet;
     }
 
@@ -26,12 +31,12 @@ public class Person {
     }
 
     public void setSurname(String surname) {
-        System.out.println("Class spring.Person: set surname");
+        System.out.println("Class Person: set surname");
         this.surname = surname;
     }
 
     public int getAge() {
-        System.out.println("Class spring.Person: set age");
+        System.out.println("Class Person: set age");
         return age;
     }
 
@@ -40,7 +45,7 @@ public class Person {
     }
 
     public void callYourPet() {
-        System.out.println("Hello, my lovely spring.Pet!");
+        System.out.println("Hello, my lovely Pet!");
         pet.say();
     }
 }
