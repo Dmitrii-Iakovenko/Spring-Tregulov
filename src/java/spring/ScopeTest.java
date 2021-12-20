@@ -8,8 +8,8 @@ public class ScopeTest {
         ClassPathXmlApplicationContext context =
                 new ClassPathXmlApplicationContext("applicationContext3.xml");
 
-        Dog myDog = context.getBean("dog", Dog.class);
-        myDog.say();
+//        Dog myDog = context.getBean("dog", Dog.class);
+//        myDog.say();
 
 
 //        Dog yourDog = context.getBean("dog", Dog.class);

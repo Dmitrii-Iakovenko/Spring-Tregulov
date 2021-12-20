@@ -7,8 +7,8 @@ import org.springframework.context.annotation.*;
 @PropertySource("classpath:myApp.properties")
 public class MyConfig {
 
-    @Bean
-    @Scope("singleton")
+//    @Bean
+//    @Scope("singleton")
     public Pet catBean() {
         return new Cat();
     }
