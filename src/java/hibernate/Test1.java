@@ -9,7 +9,8 @@ public class Test1 {
     public static void main(String[] args) {
 //        Employee employee = new Employee("Zaur", "Tregulov", "It", 500);
 //        Employee employee = new Employee("Mikhail", "Ivanov", "HR", 750);
-        Employee employee = new Employee("Alexander", "Smirnov", "Sales", 700);
+//        Employee employee = new Employee("Alexander", "Smirnov", "Sales", 700);
+        Employee employee = new Employee("Alexander", "Ivanov", "It", 600);
 
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
@@ -23,6 +24,7 @@ public class Test1 {
             session.getTransaction().commit();
 
             System.out.println("DONE");
+            System.out.println(employee);
         } finally {
             factory.close();
         }
