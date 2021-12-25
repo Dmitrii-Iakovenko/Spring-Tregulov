@@ -6,6 +6,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
+import javax.persistence.Query;
 import java.util.List;
 
 public class Test3 {
@@ -16,16 +17,16 @@ public class Test3 {
                 .buildSessionFactory();
 
         try {
-            Session sess = factory.openSession();
+            Session session = factory.openSession();
             Transaction tx = null;
             try {
-                tx = sess.beginTransaction();
+                tx = session.beginTransaction();
 
-                List<Employee> employees = sess.createQuery("from Employee where " +
-                        "name = 'Alexander' and salary>650", Employee.class)
+                String query = "from Employee where name=:name and salary>:salary";
+                List<Employee> employees = session.createQuery(query, Employee.class)
+                        .setParameter("name", "Alexander")
+                        .setParameter("salary", 650)
                         .list();
-
-
                 employees.forEach(System.out::println);
 
                 tx.commit();
@@ -33,7 +34,7 @@ public class Test3 {
                 if (tx!=null) tx.rollback();
                 throw e;
             } finally {
-                sess.close();
+                session.close();
             }
 
 
