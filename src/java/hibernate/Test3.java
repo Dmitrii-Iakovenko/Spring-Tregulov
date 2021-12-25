@@ -21,10 +21,11 @@ public class Test3 {
             try {
                 tx = sess.beginTransaction();
 
-//                List<Employee> employees = sess.createQuery("from Employee")
-                List<Employee> employees = sess.createQuery("from Employee " +
-                        "where name = 'Alexander' and salary>650")
-                        .getResultList();
+                List<Employee> employees = sess.createQuery("from Employee where " +
+                        "name = 'Alexander' and salary>650", Employee.class)
+                        .list();
+
+
                 employees.forEach(System.out::println);
 
                 tx.commit();
