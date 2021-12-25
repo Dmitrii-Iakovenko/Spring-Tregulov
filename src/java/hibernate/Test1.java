@@ -7,7 +7,9 @@ import org.hibernate.cfg.Configuration;
 
 public class Test1 {
     public static void main(String[] args) {
-        Employee employee = new Employee("Zaur", "Tregulov", "It", 500);
+//        Employee employee = new Employee("Zaur", "Tregulov", "It", 500);
+//        Employee employee = new Employee("Mikhail", "Ivanov", "HR", 750);
+        Employee employee = new Employee("Alexander", "Smirnov", "Sales", 700);
 
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
@@ -19,6 +21,8 @@ public class Test1 {
             session.beginTransaction();
             session.save(employee);
             session.getTransaction().commit();
+
+            System.out.println("DONE");
         } finally {
             factory.close();
         }
