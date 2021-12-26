@@ -77,6 +77,14 @@ public class Employee {
         this.salary = salary;
     }
 
+    public Detail getDetail() {
+        return detail;
+    }
+
+    public void setDetail(Detail detail) {
+        this.detail = detail;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
