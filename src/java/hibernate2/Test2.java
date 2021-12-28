@@ -2,6 +2,7 @@ package hibernate2;
 
 import hibernate2.entity.Detail;
 import hibernate2.entity.Employee;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -9,29 +10,46 @@ import org.hibernate.cfg.Configuration;
 
 
 public class Test2 {
+
     public static void main(String[] args) {
-        try (SessionFactory factory = new Configuration()
-                .configure("hibernate.cfg.xml")
-                .addAnnotatedClass(Employee.class)
-                .addAnnotatedClass(Detail.class)
-                .buildSessionFactory()
-        ){
-            Transaction tx = null;
-            try (Session session = factory.openSession())
-            {
-                tx = session.beginTransaction();
+        createAndExecuteSessionFactory();
+        System.out.println("DONE");
+    }
 
-                Detail detail = session.get(Detail.class, 1L);
-                detail.getEmployee().setDetail(null);
-                session.delete(detail);
+    private static void executeTransaction(Session session) {
+        Detail detail = session.get(Detail.class, 1L);
+        detail.getEmployee().setDetail(null);
+        session.delete(detail);
+    }
 
-                tx.commit();
-                System.out.println("DONE");
-            } catch (Exception e) {
-                System.out.println("ERROR: " + e.toString());
-                if (tx!=null) tx.rollback();
-                throw e;
-            }
+    private static void createAndExecuteSessionFactory() {
+        try (
+                SessionFactory factory = new Configuration()
+                        .configure("hibernate.cfg.xml")
+                        .addAnnotatedClass(Employee.class)
+                        .addAnnotatedClass(Detail.class)
+                        .buildSessionFactory()
+        ) {
+            createAndExecuteSession(factory);
+        } catch (Exception e) {
+            System.out.println("ERROR " + e);
         }
     }
+
+    private static void createAndExecuteSession(SessionFactory factory) {
+        Transaction transaction = null;
+        try (Session session = factory.openSession()) {
+            transaction = session.beginTransaction();
+            executeTransaction(session);
+            transaction.commit();
+        } catch (HibernateException hibernateEx) {
+            try {
+                if (transaction != null) transaction.rollback();
+            } catch (RuntimeException runtimeException) {
+                System.out.println("ERROR: " + runtimeException);
+            }
+            hibernateEx.printStackTrace();
+        }
+    }
+
 }
