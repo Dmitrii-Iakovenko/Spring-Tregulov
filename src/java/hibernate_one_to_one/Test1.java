@@ -1,7 +1,7 @@
-package hibernate2;
+package hibernate_one_to_one;
 
-import hibernate2.entity.Detail;
-import hibernate2.entity.Employee;
+import hibernate_one_to_one.entity.Detail;
+import hibernate_one_to_one.entity.Employee;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
