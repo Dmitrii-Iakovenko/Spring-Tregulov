@@ -17,23 +17,38 @@ public class Test1 {
     }
 
     private static void executeTransaction(Session session) {
-//        Department department = new Department("It", 300, 1200);
+        // ADD
+//        Department department = new Department("Sales", 800, 1500);
 //        Employee emp1 = new Employee("Zaur", "Tregulov", 800);
-//        Employee emp2 = new Employee("Elena", "Smirnova", 1000);
+//        Employee emp2 = new Employee("Elena", "Smirnova", 1500);
+//        Employee emp3 = new Employee("Anton", "Sidorov", 1200);
 //        department.addEmployeeToDepartment(emp1);
 //        department.addEmployeeToDepartment(emp2);
+//        department.addEmployeeToDepartment(emp3);
 //        session.save(department);
 
-//        Department department = session.get(Department.class, 1L);
-//        System.out.println(department);
-//        department.getEmployees().forEach(System.out::println);
+
+
+        // GET
+        System.out.println("Get department");
+        Department department = session.get(Department.class, 7L);
+
+        System.out.println("Show department");
+        System.out.println(department);
+
+        System.out.println("Show employees of the department");
+        department.getEmployees().forEach(System.out::println);
+
+
+
 
 //        Employee employee = session.get(Employee.class, 1L);
 //        System.out.println(employee);
 //        System.out.println(employee.getDepartment());
 
-        Employee employee = session.get(Employee.class, 4L);
-        session.delete(employee);
+        // DELETE
+//        Employee employee = session.get(Employee.class, 4L);
+//        session.delete(employee);
     }
 
     private static void createAndExecuteSessionFactory() {
